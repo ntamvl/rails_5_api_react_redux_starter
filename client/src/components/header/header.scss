@@ -1,0 +1,16 @@
+.navbar-brand {
+    position: relative;
+    padding-left: 50px;
+}
+
+.brand {
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    display: inline-block;
+    background: #2d2d2d url('logo.png') no-repeat center center;
+    width: 40px;
+    height: 40px;
+    background-size: 90%;
+    border-radius: 20px;
+}
