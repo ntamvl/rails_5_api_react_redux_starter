@@ -30,7 +30,8 @@ yarn start
 ```
 
 **Add SCSS**
-https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-a-css-preprocessor-sass-less-etc
+
+> https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-a-css-preprocessor-sass-less-etc
 
 ```
 npm install node-sass --save-dev
