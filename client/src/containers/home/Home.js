@@ -32,24 +32,17 @@ export default class Home extends Component {
               <a href="https://github.com/twbs/bootstrap " target="_blank">
                 Bootstrap
               </a>
-              ,
-
-              <a href="https://jwt.io" target="_blank"> JSON Web Token</a>, and
-              {" "}<a href="http://socket.io" target="_blank">Socket.IO</a>
-              ) used together to develop a more complex web
-              application, with features such as authentication, navigation, asynchronous data fetching,
-              error handling, caching and pagination, etc.
             </p>
 
             <div className="home-humility">
               <a
-                href="https://github.com/cloudmu/react-redux-starter-kit"
+                href="https://github.com/ntamvl/rails_5_api_react_redux_starter"
                 target="_blank"
               >
                 <i className="fa fa-github" /> View on Github
               </a>
-              <a href="https://twitter.com/_cloudmu" target="_blank">
-                <i className="fa fa-twitter home-fa-twitter" />_cloudmu
+              <a href="https://twitter.com/nguyentamvn" target="_blank">
+                <i className="fa fa-twitter home-fa-twitter" />nguyentamvn
               </a>
             </div>
           </div>
@@ -93,7 +86,6 @@ export default class Home extends Component {
               </a>
             </li>
             <li><a href="https://jwt.io" target="_blank">JSON Web Token</a></li>
-            <li><a href="http://socket.io" target="_blank"> Socket.IO</a></li>
             <li>
               <a
                 href="https://github.com/facebookincubator/create-react-app/"
