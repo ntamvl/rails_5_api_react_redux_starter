@@ -54,5 +54,23 @@ Edit `package.json`
 
 Rename `App.css` --> `App.scss`, `index.css` --> `index.scss`
 
+## How to run
+**Clone source code:**
 
+```
+cd && git clone https://github.com/ntamvl/rails_5_api_react_redux_starter
+```
+
+**Install dependencies:**
+```
+cd rails_5_api_react_redux_starter
+bundle install && cd client && npm install
+```
+
+**Run as development**
+```
+rails start
+```
+
+--> Visit http://localhost:3000/
 
