@@ -68,6 +68,12 @@ cd rails_5_api_react_redux_starter
 bundle install && cd client && npm install
 ```
 
+**Install db & create test data:**
+```
+cd && cd rails_5_api_react_redux_starter
+rails create && rails db:migrate && rails db:seed
+```
+
 **Run as development**
 ```
 rails start
