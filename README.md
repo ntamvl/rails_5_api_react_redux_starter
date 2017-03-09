@@ -65,7 +65,7 @@ cd && git clone https://github.com/ntamvl/rails_5_api_react_redux_starter
 **Install dependencies:**
 ```
 cd rails_5_api_react_redux_starter
-bundle install && cd client && npm install
+bundle install && cd client_new && npm install
 ```
 
 **Install db & create test data:**
