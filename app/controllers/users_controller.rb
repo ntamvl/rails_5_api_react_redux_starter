@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   def login
     username = params[:user] || ''
     password = params[:password] || ''
-    user = User.where(email: username).first
+    user = User.where("email = ? OR username = ?", username, username).first
     puts "username: #{user}, password: #{password}"
     if user.present? && !!user.authenticate(password)
       hmac_secret = Rails.application.secrets[:secret_key_base]

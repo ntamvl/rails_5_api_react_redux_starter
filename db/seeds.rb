@@ -7,4 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Creating users..."
-User.create(name: "Tam Nguyen", email: "ntamvl@gmail.com", password: "password", password_confirmation: "password")
+User.create(name: "Tam Nguyen", username: "admin", email: "ntamvl@gmail.com", password: "password", password_confirmation: "password")
