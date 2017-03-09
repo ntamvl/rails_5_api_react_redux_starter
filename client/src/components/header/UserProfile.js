@@ -23,7 +23,7 @@ const UserProfile = ({ user, handleLogout }) => {
         <div className="dropdown-divider" />
         <a
           className="dropdown-item"
-          href="https://github.com/cloudmu/react-redux-starter-kit"
+          href="https://github.com/ntamvl/rails_5_api_react_redux_starter"
           target="_blank"
           title="View on Github"
         >
