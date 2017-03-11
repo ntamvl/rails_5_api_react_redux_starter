@@ -20,7 +20,7 @@ export default class Header extends Component {
         </button>
         <div className="flex-row d-flex">
             <IndexLink to="/" className="navbar-brand mb-1">
-                <img src={this.props.logo} width={"50px"} />
+                <img src={this.props.logo} width={"50px"} alt="TeeWrap" />
             </IndexLink>
             <button type="button" className="hidden-md-up navbar-toggler" data-toggle="offcanvas" title="Toggle responsive left sidebar">
                 <span className="navbar-toggler-icon"></span>
@@ -35,6 +35,7 @@ export default class Header extends Component {
                 </li>
                 <Link className="nav-link" to="/features">Features</Link>
                 <Link className="nav-link" to="/products">Products</Link>
+                <Link className="nav-link" to="/users">Users</Link>
                 <Link className="nav-link" to="/about">About</Link>
             </ul>
             <ul className="navbar-nav ml-auto">

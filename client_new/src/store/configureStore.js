@@ -4,6 +4,7 @@ import createLogger from "redux-logger";
 import auth from "../reducers/auth";
 import { selectedUsersPage, usersByPage } from "../reducers/users";
 import { selectedReposPage, reposByPage } from "../reducers/repos";
+import { usersSelectedPage, usersPage, newUser } from '../reducers/user';
 
 const logger = createLogger();
 const rootReducer = combineReducers({
@@ -11,7 +12,10 @@ const rootReducer = combineReducers({
   selectedUsersPage,
   usersByPage,
   selectedReposPage,
-  reposByPage
+  reposByPage,
+  usersSelectedPage,
+  usersPage,
+  newUser
 });
 
 const initialState = {};

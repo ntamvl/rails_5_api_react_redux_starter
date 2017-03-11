@@ -15,6 +15,26 @@ class UsersController < ApplicationController
     render json: @user
   end
 
+  def search
+    page = params[:page] || 1
+    page = page.to_i
+    limit = params[:limit] || 5
+    limit = limit.to_i
+    total_users = User.count
+    offset = (page - 1) * limit
+    total_page = (total_users + limit - 1) / limit
+
+    users = User.order(created_at: :desc).offset(offset).limit(limit)
+    data = {
+      total: total_users,
+      have_more: page < total_page,
+      current_page: page,
+      total_page: total_page,
+      items: users
+    }
+    render json: data
+  end
+
   # POST /users
   def create
     @user = User.new(user_params)
@@ -79,6 +99,23 @@ class UsersController < ApplicationController
     end
   end
 
+  def signup
+    user_info = {
+      name: params[:name] || "",
+      username: params[:username] || "",
+      email: params[:email] || "",
+      password: params[:password] || "",
+      password_confirmation: params[:password_confirmation] || ""
+    }
+    @user = User.new(user_info)
+
+    if @user.save
+      render json: @user, status: :created, location: @user
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_user
@@ -87,6 +124,6 @@ class UsersController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :username, :password, :password_confirmation)
   end
 end
