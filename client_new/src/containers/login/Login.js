@@ -12,9 +12,6 @@ class Login extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("componentWillReceiveProps");
-    console.log(nextProps);
-    console.log("---------------");
     if (nextProps.user) {
       // logged in, let's show redirect if any, or show home
       try {

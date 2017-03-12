@@ -17,8 +17,7 @@ class UsersPage extends Component {
   }
 
   componentDidMount() {
-    const { dispatch, page, error } = this.props;
-    console.log(error);
+    const { dispatch, page } = this.props;
     dispatch(fetchUsersIfNeed(page));
   }
 
