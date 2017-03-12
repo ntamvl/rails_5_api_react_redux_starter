@@ -18,6 +18,7 @@ import { useRouterHistory, browserHistory } from "react-router";
 import configureStore from "./store/configureStore";
 
 import './index.scss';
+import './styles/styles.scss';
 
 import App from './App';
 import Home from "./containers/home/Home";

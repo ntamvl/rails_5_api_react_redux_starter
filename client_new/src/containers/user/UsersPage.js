@@ -69,9 +69,7 @@ class UsersPage extends Component {
     e.preventDefault();
     const { page, dispatch } = this.props;
     dispatch(usersInvalidatePage(page));
-    // dispatch(usersSelectPage(page));
     dispatch(fetchUsersIfNeed(page));
-    // this.forceUpdate();
   }
 
   render() {
