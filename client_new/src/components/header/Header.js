@@ -40,6 +40,12 @@ export default class Header extends Component {
             </ul>
             <ul className="navbar-nav ml-auto">
                 <UserProfile user={user}  handleLogout={this.onLogoutClick} />
+                {!user &&
+                <Link className="nav-link" to="/signup">
+                    <i className="fa fa-user-plus" style={{ marginRight: "0.5em" }} />
+                      Signup
+                </Link>
+                }
             </ul>
         </div>
     </nav>

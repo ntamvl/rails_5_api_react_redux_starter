@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
+import { Link } from 'react-router';
 import { login } from "../../actions/auth";
 
 import "./login.scss";
@@ -36,7 +37,7 @@ class Login extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-md-4" style={{ float: "none", margin: "0 auto" }}>
+          <div className="col-md-12 container-login" style={{ float: "none", margin: "0 auto" }}>
             <div className="card">
               <div className="card-header">Please Log in</div>
               <form className="card-block">
@@ -85,6 +86,10 @@ class Login extends Component {
                 >
                   <i className="fa fa-sign-in" />{" "}Log in
                 </button>
+                <Link className="btn btn-primary btn-block" to="/signup">
+                    <i className="fa fa-user-plus" style={{ marginRight: "0.5em" }} />
+                      Signup
+                </Link>
               </form>
             </div>
           </div>
