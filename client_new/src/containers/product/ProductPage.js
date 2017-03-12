@@ -6,7 +6,7 @@ class ProductPage extends Component {
     return (
       <div>
         <div className="container">
-          <h1>Wellcome <strong>{this.props.user}</strong> to TeeWrap!!! :D</h1>
+          <h1>Wellcome <strong>{this.props.user.name}</strong> to TeeWrap!!! :D</h1>
         </div>
       </div>
     )
@@ -14,7 +14,7 @@ class ProductPage extends Component {
 }
 
 ProductPage.propTypes = {
-  user: PropTypes.string
+  user: PropTypes.object
 }
 
 const mapStateToProps = state => {

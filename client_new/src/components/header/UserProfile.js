@@ -22,7 +22,7 @@ const UserProfile = ({ user, handleLogout }) => {
         aria-expanded="false"
       >
         <span className="fa fa-user" style={{ marginRight: "0.5em" }} />
-        {user || "Anonymous"}
+        {user.username || "Anonymous"}
         <span className="caret" />
       </a>
       <ul className="dropdown-menu" style={{ right: 0, left: "auto" }}>
@@ -53,7 +53,7 @@ const UserProfile = ({ user, handleLogout }) => {
 };
 
 UserProfile.propTypes = {
-  user: PropTypes.string,
+  user: PropTypes.object,
   handleLogout: PropTypes.func.isRequired
 };
 

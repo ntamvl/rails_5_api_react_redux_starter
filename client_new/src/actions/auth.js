@@ -15,10 +15,10 @@ export const LOGOUT_REQUEST = "LOGOUT_REQUEST";
 export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export const LOGOUT_FAILURE = "LOGOUT_FAILURE";
 
-function loginRequest(user) {
+function loginRequest(username) {
   return {
     type: LOGIN_REQUEST,
-    user
+    username
   };
 }
 
@@ -43,7 +43,7 @@ function loginFailure(error) {
   };
 }
 
-export function login(user, password) {
+export function login(username, password) {
   const config = {
     method: "post",
     headers: {
@@ -51,7 +51,7 @@ export function login(user, password) {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      user,
+      username,
       password
     })
   };
@@ -59,17 +59,17 @@ export function login(user, password) {
   return callApi(
     "/api/login",
     config,
-    loginRequest(user),
+    loginRequest(username),
     loginSuccess,
     loginFailure
   );
 }
 
-function logoutRequest(user) {
+function logoutRequest(username) {
   removeIdToken();
   return {
     type: LOGOUT_REQUEST,
-    user
+    username
   };
 }
 
@@ -98,7 +98,7 @@ export function logout(user) {
       Authorization: `Bearer ${idToken}`
     },
     body: JSON.stringify({
-      user
+      username: user.username
     })
   };
 

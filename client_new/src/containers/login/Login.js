@@ -12,6 +12,9 @@ class Login extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log("componentWillReceiveProps");
+    console.log(nextProps);
+    console.log("---------------");
     if (nextProps.user) {
       // logged in, let's show redirect if any, or show home
       try {
@@ -105,7 +108,7 @@ Login.contextTypes = {
 };
 
 Login.propTypes = {
-  user: PropTypes.string,
+  user: PropTypes.object,
   loginError: PropTypes.object,
   dispatch: PropTypes.func.isRequired,
   location: PropTypes.object

@@ -31,7 +31,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-  user: PropTypes.string,
+  user: PropTypes.object,
   children: PropTypes.node.isRequired,
   dispatch: PropTypes.func.isRequired,
   location: PropTypes.object.isRequired

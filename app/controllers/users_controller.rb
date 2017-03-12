@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   end
 
   def login
-    username = params[:user] || ''
+    username = params[:username] || ''
     password = params[:password] || ''
     user = User.where("email = ? OR username = ?", username, username).first
     puts "username: #{user}, password: #{password}"
@@ -70,7 +70,11 @@ class UsersController < ApplicationController
       iat = Time.now.to_i
       jti_raw = [hmac_secret, iat].join(':').to_s
       jti = Digest::MD5.hexdigest(jti_raw)
-      jti_payload = { user: username, role: 'ADMIN', :iat => iat, :jti => jti }
+      jti_payload = { user: {
+          username: user[:username],
+          email: user[:email],
+          name: user[:name]
+        }, role: 'ADMIN', :iat => iat, :jti => jti }
 
       token = JWT.encode jti_payload, hmac_secret, 'HS256'
 

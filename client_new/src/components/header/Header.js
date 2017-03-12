@@ -53,7 +53,7 @@ export default class Header extends Component {
 }
 
 Header.propTypes = {
-  user: PropTypes.string,
+  user: PropTypes.object,
   handleLogout: PropTypes.func.isRequired,
   location: React.PropTypes.object
 };
