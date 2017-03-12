@@ -10,7 +10,8 @@ import ReactDOM from 'react-dom';
 import { Provider } from "react-redux";
 import { Router, Route, IndexRoute } from "react-router";
 
-import { useRouterHistory, browserHistory } from "react-router";
+import { browserHistory } from "react-router";
+// import { useRouterHistory, browserHistory } from "react-router";
 // import { createHashHistory } from "history";
 // const history = useRouterHistory(createHashHistory)();
 //////////////////////////////////////////////////////////////////////////

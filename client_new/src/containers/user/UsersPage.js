@@ -4,7 +4,7 @@ import { Link } from "react-router";
 import classNames from 'classnames';
 import { v4 } from 'node-uuid';
 import { withRouter } from 'react-router';
-import { addQuery, removeQuery } from '../../utils/utils-router';
+import { addQuery } from '../../utils/utils-router';
 
 import { usersSelectPage, fetchUsersIfNeed, usersInvalidatePage } from '../../actions/user';
 
@@ -17,13 +17,9 @@ class UsersPage extends Component {
   }
 
   componentDidMount() {
-    const { dispatch, page } = this.props;
-    const current_page = this.props.location.query.page;
+    const { dispatch, page, error } = this.props;
+    console.log(error);
     dispatch(fetchUsersIfNeed(page));
-    console.log("query string: " + this.props.params);
-    console.log(this.props.params);
-    console.log("this.props.location.query: ");
-    console.log(this.props.location.query);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -45,18 +41,20 @@ class UsersPage extends Component {
   handlePreviousPageClick(e) {
     e.preventDefault();
     const { page, dispatch } = this.props;
+    const page_num = parseInt(page, 10);
     if (page > 1) {
-      dispatch(usersSelectPage(page - 1));
-      addQuery({ page: parseInt(page) - 1 })
+      dispatch(usersSelectPage(page_num - 1));
+      addQuery({ page: page_num - 1 })
     }
   }
 
   handleNextPageClick(e) {
     e.preventDefault();
     const { page, dispatch, users } = this.props;
+    const page_num = parseInt(page, 10);
     if (users.length > 0) {
-      dispatch(usersSelectPage(page + 1));
-      addQuery({ page: parseInt(page) + 1 })
+      dispatch(usersSelectPage(page_num + 1));
+      addQuery({ page: page_num + 1 })
 
       // this.context.history.push({
       //   ...this.props.location,
@@ -68,13 +66,15 @@ class UsersPage extends Component {
   handleRefresh(e) {
     e.preventDefault();
     const { page, dispatch } = this.props;
-    dispatch(usersInvalidatePage(page));
-    dispatch(fetchUsersIfNeed(page));
+    const page_num = parseInt(page, 10);
+    dispatch(usersInvalidatePage(page_num));
+    dispatch(fetchUsersIfNeed(page_num));
   }
 
   render() {
-    const { page, error, users, isFetching, have_more } = this.props;
-    const prevStyles = classNames("page-item", { disabled: page <= 1 });
+    const { page, users, isFetching, have_more } = this.props;
+    const page_num = parseInt(page, 10);
+    const prevStyles = classNames("page-item", { disabled: page_num <= 1 });
     const nextStyles = classNames("page-item", {
       disabled: !have_more
     });
@@ -96,7 +96,7 @@ class UsersPage extends Component {
             {!isFetching &&
               <li className="page-item">
                 <a className="page-link" href="#" onClick={this.handleRefresh}>
-                  Refesh page {page}
+                  Refesh page {page_num}
                 </a>
               </li>
             }
@@ -151,7 +151,7 @@ UsersPage.propsTypes = {
 function mapStateToProps(state, props) {
   const { usersSelectedPage, usersPage } = state;
   var page = usersSelectedPage || 1;
-  const current_page = props.location.query.page;
+  const current_page = parseInt(props.location.query.page, 10);
   if (current_page) {
     page = current_page;
   }

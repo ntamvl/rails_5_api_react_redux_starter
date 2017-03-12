@@ -25,7 +25,7 @@ class RestrictPage extends Component {
 }
 
 RestrictPage.propTypes = {
-  user: PropTypes.string,
+  user: PropTypes.object,
   children: PropTypes.object,
   location: PropTypes.object
 };

@@ -45,10 +45,6 @@ class SignupPage extends Component {
           dispatch(usersInvalidatePage(1));
         }
       }
-      console.log("------- begin newUser ------- ");
-      console.log(nextProps.newUser);
-      console.log("nextProps created: " + nextProps.newUser.created);
-      console.log("------- end newUser ------- ");
     }
   }
 
@@ -94,9 +90,9 @@ class SignupPage extends Component {
   }
 
   handleInputChange(event) {
-    event.preventDefault;
+    event.preventDefault();
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = (target.type === 'checkbox' ? target.checked : target.value);
     const name = target.name;
     this.setState({
       [name]: value
@@ -117,7 +113,7 @@ class SignupPage extends Component {
         }
       });
 
-      if (name == "email") {
+      if (name === "email") {
         if (!this.isEmail(value)) {
           this.setState({
             invalidStyles: {
@@ -126,7 +122,7 @@ class SignupPage extends Component {
           });
         }
       }
-      if (name == "password_confirmation") {
+      if (name === "password_confirmation") {
         if (value !== this.state.password) {
           this.setState({
             invalidStyles: {
@@ -139,7 +135,7 @@ class SignupPage extends Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault;
+    event.preventDefault();
     const { dispatch } = this.props;
     dispatch(createUser({...this.state}));
   }
